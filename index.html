@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Profile Card Demo</title>
+    <script src="./profile-card/profileCard.js" defer></script>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+<h1 class="header">Profile Card Demo</h1>
+<template id="profile-card">
+    <div class="profile-card">
+        <img src="./profile-card/img/profile.jpg" alt="John" class="profile-pic">
+        <h1>Elon Musk</h1>
+        <p class="title">CEO & Founder, Tesla</p>
+        <div class="social"></div>
+        <a href="#"><img src="./profile-card/img/twitter.png" alt="Twitter" class="social" /></a>
+        <a href="#"><img src="./profile-card/img/linkedin.png" alt="linkedin" class="social" /></a>
+        <a href="#"><img src="./profile-card/img/facebook.png" alt="facebook" class="social" /></a>
+        <p>
+            <button>Contact</button>
+        </p>
+    </div>
+</template>
+
+<profile-card>
+</profile-card>
+
+</body>
+</html>
+
