@@ -9,7 +9,7 @@ class ProfileCard extends HTMLElement {
         const container = document.createElement('div');
         container.innerHTML = `
                  <div class="profile-card">
-                    <img src="./profile-card/img/${this.profile.profilePic}" alt="John" class="profile-pic">
+                    <img id="profile-pic" src="./profile-card/img/${this.profile.profilePic}" alt="${this.profile.name}" class="profile-pic">
                     <div class="details">
                             <div class="name-container">
                                 <h1 id="name" class="name">${this.profile.name}</h1>
@@ -60,13 +60,18 @@ class ProfileCard extends HTMLElement {
     toggleDetails() {
         this.toggle = !this.toggle;
         const details = this.shadowRoot.getElementById('details');
+        const toggle = this.shadowRoot.getElementById('toggle');
 
         if (this.toggle) {
             details.classList.remove('hide-details');
             details.classList.add('show-details');
+
+            toggle.classList.add('profile-pic-rotate');
         } else {
             details.classList.add('hide-details');
             details.classList.remove('show-details');
+
+            toggle.classList.remove('profile-pic-rotate');
         }
     }
 }

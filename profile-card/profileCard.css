@@ -19,6 +19,10 @@
     width: 100%;
 }
 
+.profile-pic-rotate{
+    transform: rotate(180deg);
+}
+
 .title {
     color: grey;
     font-size: 22px;
@@ -86,7 +90,7 @@ button:hover, a:hover {
 .show-details {
     height: 100%;
     display: inline-block;
-    transition: height 1s;
+    transition: height 5s;
 }
 
 .hide-details {
