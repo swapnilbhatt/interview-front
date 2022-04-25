@@ -16,7 +16,7 @@ describe("visual regression testing",()=>{
         await page.goto("http://localhost:63342/interview-front/index.html")
     });
 
-    test('page collapsed details', async function(){
+    test('initially page should show collapsed details', async function(){
         await page.waitForSelector('h1')
         const image = await page.screenshot("collapsed");
         expect(image).toMatchImageSnapshot({
@@ -25,11 +25,22 @@ describe("visual regression testing",()=>{
         })
     });
 
-    test('page expanded details', async function(){
+    test('it should expand details', async function(){
         await page.waitForSelector('h1');
         const buttonHandle = await page.evaluateHandle(`document.querySelector("body > profile-card").shadowRoot.querySelector("#toggle")`);
         await  buttonHandle.click();
         const image = await page.screenshot("expanded");
+        expect(image).toMatchImageSnapshot({
+            failureThresholdType:'pixel',
+            failureThreshold:500
+        })
+    });
+
+    test('it should collapse details', async function(){
+        await page.waitForSelector('h1');
+        const buttonHandle = await page.evaluateHandle(`document.querySelector("body > profile-card").shadowRoot.querySelector("#toggle")`);
+        await  buttonHandle.click();
+        const image = await page.screenshot("collapsed");
         expect(image).toMatchImageSnapshot({
             failureThresholdType:'pixel',
             failureThreshold:500

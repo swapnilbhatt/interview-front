@@ -1,0 +1,33 @@
+{
+  "name": "interview-front",
+  "version": "1.0.0",
+  "description": "Please follow these steps to complete this exercise.",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest --runInBand",
+    "test-snapshot": "jest --config=jest.config.js --detectOpenHandles --forceExit",
+    "test-snapshots-update": "jest --config=jest.config.js --updateSnapshot --detectOpenHandles --forceExit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swapnilbhatt/interview-front.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swapnilbhatt/interview-front/issues"
+  },
+  "homepage": "https://github.com/swapnilbhatt/interview-front#readme",
+  "dependencies": {
+    "chromedriver": "^100.0.0",
+    "geckodriver": "^3.0.1",
+    "jest-image-snapshot": "^4.5.1",
+    "selenium-webdriver": "^4.1.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "jest-puppeteer": "^3.9.1",
+    "puppeteer": "^1.20.0"
+  }
+}
