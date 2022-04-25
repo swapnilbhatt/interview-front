@@ -1,11 +1,39 @@
 class ProfileCard extends HTMLElement {
     toggle = false;
+    profile;
 
     constructor() {
         super();
-
-        const template = document.getElementById('profile-card');
-        const templateContent = template.content;
+        this.profile = JSON.parse(this.getAttribute('profile'));
+        console.log(this.getAttribute('profile'));
+        const container = document.createElement('div');
+        container.innerHTML = `
+                 <div class="profile-card">
+                    <img src="./profile-card/img/${this.profile.profilePic}" alt="John" class="profile-pic">
+                    <div class="details">
+                            <div class="name-container">
+                                <h1 id="name">${this.profile.name}</h1>
+                                <div class="toggle">
+                                    <img src="profile-card/img/angle-small-down.png" id="toggle" class="arrow-down social"
+                                      alt="expand" />
+                                </div>
+                            </div>
+                            <div id="details" class="details hide-details">
+                                <p class="title">${this.profile.title}</p>
+                                <div class="social"></div>
+                                <a href="${this.profile.contact.twitter}" target="_blank">
+                                    <img src="./profile-card/img/twitter.png" alt="Twitter" class="social"/>
+                                </a>
+                                <a href="${this.profile.contact.linkedin}" target="_blank">
+                                    <img src="./profile-card/img/linkedin.png" alt="linkedin" class="social" />
+                                </a>
+                                <a href="${this.profile.contact.fb}" target="_blank">
+                                    <img src="./profile-card/img/facebook.png" alt="facebook" class="social" />
+                                </a>
+                            </div>
+                    </div>
+                 </div>
+        `;
 
         // Apply external styles to the shadow dom
         const linkElem = document.createElement('link');
@@ -18,9 +46,7 @@ class ProfileCard extends HTMLElement {
         this.shadow.appendChild(linkElem);
 
         //  shadow.appendChild(fontAwe);
-        this.shadow.appendChild(
-            templateContent.cloneNode(true)
-        );
+        this.shadow.appendChild(container);
 
         this.toggleDetails = this.toggleDetails.bind(this);
     }
@@ -30,15 +56,14 @@ class ProfileCard extends HTMLElement {
         toggleEle.addEventListener('click', this.toggleDetails, false);
     }
 
-    toggleDetails(e){
+    toggleDetails() {
         this.toggle = !this.toggle;
         const details = this.shadowRoot.getElementById('details');
 
-        if(this.toggle){
+        if (this.toggle) {
             details.classList.remove('hide-details');
             details.classList.add('show-details');
-        }
-        else{
+        } else {
             details.classList.add('hide-details');
             details.classList.remove('show-details');
         }
