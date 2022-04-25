@@ -1,4 +1,6 @@
 class ProfileCard extends HTMLElement {
+    toggle = false;
+
     constructor() {
         super();
 
@@ -10,17 +12,37 @@ class ProfileCard extends HTMLElement {
         linkElem.setAttribute('rel', 'stylesheet');
         linkElem.setAttribute('href', '../profile-card/profileCard.css');
 
-        const shadow = this.attachShadow({mode: 'open'});
+        this.shadow = this.attachShadow({mode: 'open'});
 
         // Attach the created elements to the shadow dom
-        shadow.appendChild(linkElem);
+        this.shadow.appendChild(linkElem);
 
         //  shadow.appendChild(fontAwe);
-        shadow.appendChild(
+        this.shadow.appendChild(
             templateContent.cloneNode(true)
         );
+
+        this.toggleDetails = this.toggleDetails.bind(this);
+    }
+
+    connectedCallback() {
+        const toggleEle = this.shadowRoot.getElementById('toggle');
+        toggleEle.addEventListener('click', this.toggleDetails, false);
+    }
+
+    toggleDetails(e){
+        this.toggle = !this.toggle;
+        const details = this.shadowRoot.getElementById('details');
+
+        if(this.toggle){
+            details.classList.remove('hide-details');
+            details.classList.add('show-details');
+        }
+        else{
+            details.classList.add('hide-details');
+            details.classList.remove('show-details');
+        }
     }
 }
 
 customElements.define('profile-card', ProfileCard);
-
