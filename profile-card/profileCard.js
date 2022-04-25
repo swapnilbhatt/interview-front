@@ -12,24 +12,25 @@ class ProfileCard extends HTMLElement {
                     <img src="./profile-card/img/${this.profile.profilePic}" alt="John" class="profile-pic">
                     <div class="details">
                             <div class="name-container">
-                                <h1 id="name">${this.profile.name}</h1>
+                                <h1 id="name" class="name">${this.profile.name}</h1>
                                 <div class="toggle">
-                                    <img src="profile-card/img/angle-small-down.png" id="toggle" class="arrow-down social"
+                                    <img src="profile-card/img/angle-small-down.png" id="toggle" class="arrow-down"
                                       alt="expand" />
                                 </div>
                             </div>
                             <div id="details" class="details hide-details">
-                                <p class="title">${this.profile.title}</p>
-                                <div class="social"></div>
-                                <a href="${this.profile.contact.twitter}" target="_blank">
-                                    <img src="./profile-card/img/twitter.png" alt="Twitter" class="social"/>
-                                </a>
-                                <a href="${this.profile.contact.linkedin}" target="_blank">
-                                    <img src="./profile-card/img/linkedin.png" alt="linkedin" class="social" />
-                                </a>
-                                <a href="${this.profile.contact.fb}" target="_blank">
-                                    <img src="./profile-card/img/facebook.png" alt="facebook" class="social" />
-                                </a>
+                                <div class="title">${this.profile.title}</div>
+                                <div class="social-container">
+                                    <a href="${this.profile.contact.twitter}" target="_blank">
+                                        <img src="./profile-card/img/twitter.png" alt="Twitter" class="social"/>
+                                    </a>
+                                    <a href="${this.profile.contact.linkedin}" target="_blank">
+                                        <img src="./profile-card/img/linkedin.png" alt="linkedin" class="social" />
+                                    </a>
+                                    <a href="${this.profile.contact.fb}" target="_blank">
+                                        <img src="./profile-card/img/facebook.png" alt="facebook" class="social" />
+                                    </a>
+                                </div>
                             </div>
                     </div>
                  </div>

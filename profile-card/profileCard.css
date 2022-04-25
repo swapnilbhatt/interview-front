@@ -21,7 +21,10 @@
 
 .title {
     color: grey;
-    font-size: 18px;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0 0 10px 14px;
+    text-align: start;
 }
 
 button {
@@ -50,15 +53,34 @@ button:hover, a:hover {
 .social {
     width: 20px;
     height: 20px;
+    margin: 5px;
+}
+
+.social-container{
+    margin-bottom: 10px;
 }
 
 .name-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.arrow-down{
+    width: 20px;
+    height: 20px;
+}
+
+.name{
+    margin-left: 10px;
 }
 
 .toggle {
-    margin: 30px 10px;
+    margin: 33px 10px 10px 10px;
+    cursor: pointer;
+}
+
+.details{
+    width: 100%;
 }
 
 .show-details {
@@ -72,11 +94,4 @@ button:hover, a:hover {
     height: 0;
 }
 
-@-webkit-keyframes cssAnimation {
-    from {
-        -webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(100px);
-    }
-    to {
-        -webkit-transform: rotate(0deg) scale(2) skew(0deg) translate(100px);
-    }
-}
+
